@@ -29,4 +29,4 @@ class Metrics():
 
         self.screen.blit(y, (5, 25))
 
-        self.screen.blit(font.render("Made by iiPython", True, self.color), (500, 0))
+        self.screen.blit(font.render("Made by iiPython", True, self.color), (490, 0))
