@@ -1,8 +1,8 @@
 # Modules
 import pygame
-from os import system
-
 from time import sleep
+
+from os import system, name
 from api.keybinds import Chat
 
 from GUI.colors import Colors
@@ -13,6 +13,21 @@ from GUI.functions import clear, getInfo
 
 from api.user import equipItem, leaveGame, resetChar
 from api.movement import Move, RandomMove, MoveToPos, resetPosition
+
+# Clear
+def _clear():
+
+    if name == "nt":
+
+        system("cls")
+
+    elif name == "posix":
+
+        system("clear")
+
+    else:
+
+        raise SystemError("Unsupported operating system %" % name)
 
 # Initialization
 HANDLER = WindowManager()
@@ -76,7 +91,7 @@ while True:
 
             resetChar()
 
-            system("cls")
+            _clear()
 
             pygame.quit()
 

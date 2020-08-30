@@ -26,16 +26,6 @@ KEYEVENTF_SCANCODE    = 0x0008
 MAPVK_VK_TO_VSC = 0
 
 ALPHABET = {
-    "0": 0x30,
-    "1": 0x31,
-    "2": 0x32,
-    "3": 0x33,
-    "4": 0x34,
-    "5": 0x35,
-    "6": 0x36,
-    "7": 0x37,
-    "8": 0x38,
-    "9": 0x39,
     "A": 0x41,
     "B": 0x42,
     "C": 0x43,
@@ -198,6 +188,10 @@ def Type(text):
     isCaps = []
 
     for char in text:
+
+        if not char.upper() in ALPHABET:
+
+            raise ValueError("Character % is not supported." % char)
 
         textCodes.append(ALPHABET[char.upper()])
 
