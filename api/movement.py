@@ -1,6 +1,6 @@
 # Modules
 from random import choice
-from keybinds import Hotkey
+from .keybinds import Hotkey
 
 # Initialization
 CURRENT_POS = (0, 0)

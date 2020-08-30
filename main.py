@@ -3,16 +3,16 @@ import pygame
 from os import system
 
 from time import sleep
-from keybinds import Chat
+from api.keybinds import Chat
 
 from GUI.colors import Colors
 from GUI.metrics import Metrics
 
-from windows import WindowManager
+from api.windows import WindowManager
 from GUI.functions import clear, getInfo
 
-from user import equipItem, leaveGame, resetChar
-from movement import Move, RandomMove, MoveToPos, resetPosition
+from api.user import equipItem, leaveGame, resetChar
+from api.movement import Move, RandomMove, MoveToPos, resetPosition
 
 # Initialization
 HANDLER = WindowManager()

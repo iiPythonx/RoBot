@@ -3,7 +3,7 @@ import time
 import ctypes
 
 from ctypes import wintypes
-from windows import WindowManager
+from .windows import WindowManager
 
 # Initialization
 HANDLER = WindowManager()

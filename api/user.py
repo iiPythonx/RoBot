@@ -1,5 +1,5 @@
 # Modules
-from keybinds import Hotkey
+from .keybinds import Hotkey
 
 # Functions
 def equipItem(slotNo):
