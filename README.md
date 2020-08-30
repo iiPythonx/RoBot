@@ -51,4 +51,6 @@ sleep(5)
 leaveGame() # Leave the current game
 ```
 
-Last updated: **8/29/2020**.
+---
+
+Last updated: **8/30/2020**.
