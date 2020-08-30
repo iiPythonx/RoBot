@@ -2,7 +2,9 @@
 import time
 import ctypes
 
+from sys import argv
 from ctypes import wintypes
+
 from .windows import WindowManager
 
 # Initialization
@@ -240,6 +242,10 @@ def Hotkey(key, seconds = 0):
     ReleaseKey(code)
 
 def Chat(text):
+
+    if "-q" in argv[1:] or "--quiet" in argv[1:]:
+
+        return
 
     Type("/")
 
