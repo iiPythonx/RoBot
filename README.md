@@ -21,4 +21,34 @@ require you to enter credentials.
   - It could take 5 - 15 seconds to start up.
   - Clicking on the graph that opens will move the bot to a certain coordinate.
 
+---
+
+### API Example
+Since this is a keypress-only bot, RoBot has provided a folder containing
+functions related to movement, chatting, window management, and keystrokes.
+
+The API is contained in the `/api/` directory.
+Quick example:
+
+```
+from time import sleep
+from api.keybinds import Chat
+
+from api.windows import WindowManager
+from api.user import leaveGame, resetChar
+
+# Focuses on the current roblox instance
+# Raises errors.NoRobloxInstance
+HANDLER = WindowManager()
+HANDLER.focusROBLOX()
+
+sleep(.1) # To account for the window delay
+
+Chat("Hello, world.")
+
+sleep(5)
+
+leaveGame() # Leave the current game
+```
+
 Last updated: **8/29/2020**.
