@@ -7,6 +7,7 @@ If you encounter a security issue, file a report.
 
 | Version | Security Patched?  |
 | ------- | ------------------ |
+| 1.0.4-a | :x:                |
 | 1.0.3   | :white_check_mark: |
 | 1.0.2   | :white_check_mark: |
 | 1.0.1   | :white_check_mark: |
@@ -15,4 +16,4 @@ If you encounter a security issue, file a report.
 ## Reporting
 
 To report a security issue with RoBot, please file an issue.
-Make sure to include your operating system, Python version, and the steps you took.
+Make sure to include your operating system, Python version, and all of the steps that you took to start the bot.

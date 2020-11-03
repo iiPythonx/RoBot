@@ -5,17 +5,19 @@ from time import sleep
 from os import system, name
 from api.keybinds import Chat
 
-from GUI.colors import Colors
-from GUI.metrics import Metrics
+from screen.colors import Colors
+from screen.metrics import Metrics
 
 from api.windows import WindowManager
-from GUI.functions import clear, getInfo
+from screen.functions import clear, getInfo
 
 from api.user import equipItem, leaveGame, resetChar
 from api.movement import Move, RandomMove, MoveToPos, resetPosition
 
-# Clear
+# Template functions
 def _clear():
+
+    """Cross-platform method of clearing the terminal"""
 
     if name == "nt":
 
@@ -44,19 +46,14 @@ HANDLER.focusROBLOX()
 
 resetChar()
 
-sleep(4.5)
+# Proceed once reset is done
+sleep(7)
 
-Chat("Calibration complete.")
-
-# Hold
-sleep(1)
-
-# Begin code
+# Begin master loop
 while True:
 
     # Fetch screen size and mouse positions
     X, Y, W, H = getInfo()
-
     _X, _Y, _W, _H = getInfo()
 
     # Update every frame

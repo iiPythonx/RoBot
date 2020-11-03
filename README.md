@@ -1,10 +1,14 @@
 # RoBot
-# The most basic bot in existance for Roblox.
+# Just a bot for Roblox clients
 ---
 
-RoBot is a bot that uses a Roblox client and can perform actions automatically.
+RoBot is a utility bot that uses a Roblox client and can perform actions automatically.
 It uses `pygetwindow` to focus on Roblox and send keypresses to it.
 
+It also has a neat little interface made using `pygame`, other than those it has no dependencies.
+
+---
+### Security Notice
 Since it only uses keypresses, RoBot does **not** require administrator privileges or
 require you to enter credentials.
 
@@ -13,15 +17,18 @@ require you to enter credentials.
 ### Installation
 - Ensure that you have downloaded (and installed!) Python 3.6 or later (3.8+ recommended).
   - **This includes adding it to your path!**
-- Download the source code via the `Code` and `Download ZIP` buttons.
-- Locate the zip folder you downloaded and extract it.
-- Install the dependencies by opening a terminal in the extracted directory and executing `pip install -r requirements.txt`.
+- Ensure that you have the latest version of git installed.
+- Clone the repository with `git clone https://github.com/ii-Python/RoBot`.
+- Enter the newly created directory with `cd RoBot`.
+- Install the dependencies via pip: `python -m pip install -r requirements.txt`.
 
-### Using the Bot
-- Open a Roblox game window
+### Usage
+**Before attempting to start the bot, make sure you have a window open! It will raise `errors.NoRobloxInstance` otherwise.**
+
+- Join a new Roblox game and wait for it to load completely.
 - Double click (or launch by terminal) the `main.py` file.
-  - It could take 5 - 15 seconds to start up.
-  - Clicking on the graph that opens will move the bot to a certain coordinate.
+  - Please note this could take a few seconds to initialize.
+- Once started, you can use the GUI that shows up on your screen.
 
 You can also provide some options to the bot.
 To do this, make sure you're launching the bot via terminal.
@@ -29,15 +36,15 @@ To do this, make sure you're launching the bot via terminal.
 To add an option, call the bot like so: `python main.py [options]`
 
 **Available Options:**
-  - `-q` and `--quiet`, disables chat output.
+  - `-q` *or* `--quiet`, disables chat output.
 ---
 
-### API Example
+### API
 Since this is a keypress-only bot, RoBot has provided a folder containing
 functions related to movement, chatting, window management, and keystrokes.
 
-The API is contained in the `/api/` directory.
-Quick example:
+The API is contained in the `api` directory.
+An example application might look like the following:
 
 ```
 from time import sleep
@@ -47,19 +54,20 @@ from api.windows import WindowManager
 from api.user import leaveGame, resetChar
 
 # Focuses on the current roblox instance
-# Raises errors.NoRobloxInstance
+# Raises `errors.NoRobloxInstance` if one wasn't located
 HANDLER = WindowManager()
 HANDLER.focusROBLOX()
 
-sleep(.1) # To account for the window delay
+sleep(.1)  # This will account for the delay while switching windows
 
+# Execute anything you want here
 Chat("Hello, world.")
 
 sleep(5)
 
-leaveGame() # Leave the current game
+leaveGame()  # Leaves the current game
 ```
 
 ---
 
-Last updated: **8/30/2020**.
+Last updated: **11/3/2020**.

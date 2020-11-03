@@ -12,18 +12,19 @@ HANDLER = WindowManager()
 
 user32 = ctypes.WinDLL("user32", use_last_error = True)
 
-SHIFT          = 0x10
+# Key initialization
+SHIFT                 = 0x10
 
-INPUT_MOUSE    = 0
-INPUT_KEYBOARD = 1
-INPUT_HARDWARE = 2
+INPUT_MOUSE           = 0
+INPUT_KEYBOARD        = 1
+INPUT_HARDWARE        = 2
 
 KEYEVENTF_EXTENDEDKEY = 0x0001
 KEYEVENTF_KEYUP       = 0x0002
 KEYEVENTF_UNICODE     = 0x0004
 KEYEVENTF_SCANCODE    = 0x0008
 
-MAPVK_VK_TO_VSC = 0
+MAPVK_VK_TO_VSC       = 0
 
 ALPHABET = {
     "A": 0x41,
@@ -61,7 +62,6 @@ ALPHABET = {
     "[ESC]": 0x1B
 }
 
-# msdn.microsoft.com/en-us/library/dd375731
 VK_TAB  = 0x09
 VK_MENU = 0x12
 
@@ -147,9 +147,10 @@ user32.SendInput.argtypes = (
 # Functions
 def PressKey(hexKeyCode):
 
-    # Focus on ROBLOX only
+    # Focus on ROBLOX
     HANDLER.focusROBLOX()
 
+    # Begin keypress
     x = INPUT(
         type = INPUT_KEYBOARD,
         ki = KEYBDINPUT(wVk = hexKeyCode)
@@ -159,6 +160,7 @@ def PressKey(hexKeyCode):
 
 def ReleaseKey(hexKeyCode):
     
+    # Let go of key
     x = INPUT(
         type = INPUT_KEYBOARD,
         ki = KEYBDINPUT(
@@ -169,19 +171,9 @@ def ReleaseKey(hexKeyCode):
 
     user32.SendInput(1, ctypes.byref(x), ctypes.sizeof(x))
 
-def AltTab():
-
-    PressKey(VK_MENU)
-
-    PressKey(VK_TAB)
-
-    ReleaseKey(VK_TAB)
-    
-    time.sleep(2)
-
-    ReleaseKey(VK_MENU)
-
 def Type(text):
+
+    """Types each individual character in a string"""
 
     textCodes = []
 
